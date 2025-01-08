@@ -25,7 +25,6 @@ class Chat:
 
         chat_message_url = f"{self.base_url}/chat-messages"
         text_content = ""
-
         try:
             async with httpx.AsyncClient() as client:
                 async with client.stream(
@@ -43,11 +42,12 @@ class Chat:
                                 if answer := json_data.get('answer'):
                                     text_content += answer
                             except json.JSONDecodeError as e:
-                                print(line)
                                 raise Exception(f'JSON解析错误: {e}')
 
         except httpx.RequestError as e:
             raise Exception(f'请求失败: {str(e)}')
         except Exception as e:
             raise Exception(f'处理失败: {str(e)}')
+        
+        text_content = text_content.replace('Final Answer:', '') # 模型默认会回复前缀
         return text_content

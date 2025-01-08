@@ -23,7 +23,7 @@ async def audio_to_text(file_path: str) -> str:
                     'file': (os.path.basename(file_path), f, mime_type),
                 }
                 response = await client.post(url, headers=headers, files=files)
-                response.raise_for_status()
+                # response.raise_for_status()
                 return response.json().get('text')
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f'错误: 找不到文件 {file_path}')
@@ -36,6 +36,7 @@ async def send_requests(text:str) -> str:
     try:
         chat = Chat()
         text_content = await chat.send_request(text)
+        print(f'文本内容: \n{text_content}')
         return text_content
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"模型请求失败: {str(e)}")
