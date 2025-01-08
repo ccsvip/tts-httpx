@@ -1,0 +1,18 @@
+services:
+  audio_url_api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: audio_url_api
+    ports:
+      - "${DOCKER_PORT}:${PORT}"
+    volumes:
+      - ./uploads:/app/uploads
+    environment:
+      - TZ=Asia/Shanghai
+      - PORT=${PORT}
+      - API_KEY=${API_KEY}
+      - BASE_URL=${BASE_URL}
+      - API_URL=${API_URL}
+      - REFERENCE_ID=${REFERENCE_ID}
+    restart: always   

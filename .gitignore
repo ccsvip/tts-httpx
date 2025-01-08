@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Project specific
+uploads/
+uploads/*
+*.log
+scripts/
+scripts/*
+
+# others
+docker-compose.mirror.yaml
+run.py
