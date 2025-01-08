@@ -1,6 +1,3 @@
-好的，我帮你重新整理一下 README.md 文件的格式，使其更清晰易读，并添加一些细节：
-
-
 # Audio Processing API
 
 This is an audio processing API service built with FastAPI, supporting functionalities like speech-to-text, text-based conversation, and text-to-speech.
