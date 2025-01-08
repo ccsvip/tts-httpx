@@ -11,6 +11,7 @@ httpx = "^0.28.1"
 python-dotenv = "^1.0.1"
 requests = "^2.32.3"
 fastapi = {extras = ["all"], version = "^0.115.6"}
+sentry-sdk = {extras = ["fastapi"], version = "^2.19.2"}
 
 
 [build-system]
